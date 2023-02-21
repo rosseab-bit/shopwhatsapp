@@ -34,7 +34,16 @@ const data = [
     }
 ]
 
+
+
 const ClothesMan = () => {
+    const sendMessageWsp = (item)=> {
+        let message = "Hola! Te consulto por el producto \n "+item["title"]+" 👕: "+item["description"]+"."+"\n"+"Tenes para la venta? 💲\n Gracias.-"
+        let number = "+5491140825271"
+        var url = "whatsapp://send?text="+encodeURIComponent(message)+"&phone="+encodeURIComponent(number)
+    
+        window.open(url);
+    }
     return (
         <>
         <div
@@ -77,7 +86,7 @@ const ClothesMan = () => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary" onClick={() => sendMessageWsp(item)}>
                         Consultar
                     </Button>
                 </CardActions>
